@@ -8,7 +8,7 @@
 // a request to student will cause this function to run
 // findAll() returns a promise that contain the array of our students which is then converted into json and return it back to our vue client
     router.get('/students', function(req, res, next){
-        Student.findAll( {order: ['present', 'name'] } ).then( students => { //order function sort the input by whatever is in the array
+        Student.findAll( {order: ['present', 'starID'] } ).then( students => { //order function sort the input by whatever is in the array
             return res.json(students)
         }).catch( err => next(err) )
     })

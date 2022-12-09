@@ -8,9 +8,10 @@
     let app = express()
 
     //Deploying to Azure
-    let vueClientPath = path.join(__dirname, 'student=sign-in-client', 'dist')
+    let pathToVueApp = path.join(__dirname, 'student-sign-in-client', 'dist')
+    let vueApp = express.static(pathToVueApp)
+    app.use('/', vueApp)
 
-    app.use(express.static(vueClientPath))
 
     //enable our app to express and process JSON requests, and convert data to JavaScript
     app.use(express.json())
